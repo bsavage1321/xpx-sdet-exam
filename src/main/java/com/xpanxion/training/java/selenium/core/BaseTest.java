@@ -39,6 +39,7 @@ public class BaseTest {
 	public void setup(Method m) {
 		LOG.debug("Initializing WebDriver...");
 		this.driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 		LOG.debug("Finished initializing WebDriver!");
 		LOG.debug("Beginning Test '{}'...", this.getTestName(m));
 	}

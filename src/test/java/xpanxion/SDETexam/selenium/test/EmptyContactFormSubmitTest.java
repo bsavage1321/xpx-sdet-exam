@@ -1,0 +1,95 @@
+package xpanxion.SDETexam.selenium.test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import xpanxion.SDETexam.selenium.objects.pages.ContactPage;
+import xpanxion.SDETexam.selenium.objects.pages.HomePage;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class EmptyContactFormSubmitTest extends BaseTest{
+
+	public static final Logger LOG = LoggerFactory.getLogger(SampleTest.class);
+	
+	@Test
+	public void testContactPage() {
+		final ContactPage contactPage = new HomePage(this.driver, true).navToContactPage();
+		LOG.info("Verifying Contact Page has loaded");
+		Assert.assertEquals(contactPage.getMessageContact().getText(), "Message:");
+		
+		LOG.info("Before an empty Name submission");
+		//System.out.println(contactPage.getNameBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getNameBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rgba(196, 196, 196, 1) actual: " + contactPage.getNameBefore().getCssValue("color"));
+		
+		LOG.info("Before an empty Email submission");
+		//System.out.println(contactPage.getEmailBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getEmailBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rgba(196, 196, 196, 1) actual: " + contactPage.getEmailBefore().getCssValue("color"));
+
+		
+		LOG.info("Before an empty Phone Number Submission");
+		//System.out.println(contactPage.getPhoneNumberBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getPhoneNumberBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rgba(196, 196, 196, 1) actual: " + contactPage.getPhoneNumberBefore().getCssValue("color"));
+
+		LOG.info("getting name text color");
+		//System.out.println(contactPage.getNameTextBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getNameText().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rgba(196, 196, 196, 1). Actual: " + contactPage.getNameText().getCssValue("color"));
+		
+		LOG.info("getting email text color");
+		//System.out.println(contactPage.getNameTextBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getEmailText().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rgba(196, 196, 196, 1). Actual: " + contactPage.getEmailText().getCssValue("color"));
+		
+		LOG.info("getting phone number text color");
+		//System.out.println(contactPage.getNameTextBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getPhoneNumberText().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		LOG.info("Expected = rbga(196, 196, 196, 1). Actual: " + contactPage.getPhoneNumberText().getCssValue("color"));
+		
+		
+	}
+	
+		@Test
+		public void contactPageVerifyErrorsDisplay() {
+			final ContactPage contactPage = new HomePage(this.driver, true).navToContactPage();
+			LOG.info("Verifying Contact Page has loaded\n");
+			Assert.assertEquals(contactPage.getMessageContact().getText(), "Message:");
+			
+		LOG.info("Sending an empty Contact form\n");
+			
+		// sends an empty contact form, should display errors
+		contactPage.submitContactInfo();
+
+		LOG.info("Verifying error has displayed for the Name field");
+		Assert.assertEquals(contactPage.getNameAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1) actual: " + contactPage.getNameAfter().getCssValue("color"));
+		
+		LOG.info("Verifying name text has changed to red");
+		Assert.assertEquals(contactPage.getNameText().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1). Actual: " + contactPage.getNameText().getCssValue("color"));
+
+		
+		LOG.info("Verifying error has displayed for the Email field");
+		Assert.assertEquals(contactPage.getEmailAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1) actual: " + contactPage.getEmailAfter().getCssValue("color"));
+		
+		LOG.info("Verifying email text has changed to red");
+		Assert.assertEquals(contactPage.getEmailText().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1). Actual: " + contactPage.getEmailText().getCssValue("color"));
+
+		
+		LOG.info("Verifying error has dispayed for the Phone Number field");
+		Assert.assertEquals(contactPage.getPhoneNumberAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1) actual: " + contactPage.getPhoneNumberAfter().getCssValue("color"));
+		
+		LOG.info("Verifying Phone Number text has changed to red");
+		Assert.assertEquals(contactPage.getPhoneNumberText().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		LOG.info("Expected = rgba(215, 36, 76, 1). Actual: " + contactPage.getPhoneNumberText().getCssValue("color"));
+		
+		
+	}
+}

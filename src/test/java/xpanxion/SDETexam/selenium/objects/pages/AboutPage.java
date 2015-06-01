@@ -1,0 +1,27 @@
+package xpanxion.SDETexam.selenium.objects.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import xpanxion.SDETexam.selenium.template.MainPageTemplate;
+
+public class AboutPage extends MainPageTemplate{
+
+	@FindBy(id = "u520-4")
+	private WebElement howWeGotStarted;
+	
+	public AboutPage(WebDriver driver) {
+		super(driver);
+		
+	}
+
+	public WebElement getHowWeGotStarted() {
+		return howWeGotStarted;
+	}
+
+	public void setHowWeGotStarted(WebElement howWeGotStarted) {
+		this.howWeGotStarted = howWeGotStarted;
+	}
+
+}
