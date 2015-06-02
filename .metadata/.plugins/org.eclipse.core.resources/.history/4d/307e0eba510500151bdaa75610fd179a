@@ -1,0 +1,7 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class HeaderLinkTest extends BaseTest{
+
+}

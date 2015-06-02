@@ -1,0 +1,36 @@
+package com.xpanxion.training.java.selenium.automation;
+
+
+import org.openqa.selenium.WebDriver;
+import com.xpanxion.training.java.selenium.core.PageObject;
+import com.xpanxion.training.java.selenium.core.utils.WaitUtils;
+
+public class MainPageTemplate extends PageObject {
+	
+	private HomePageHeaders homePageHeaders;
+	
+	public MainPageTemplate(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+	public MainPageTemplate(WebDriver driver, String url) {
+		super(driver, url);
+
+		this.setHomePageHeaders(new HomePageHeaders(driver));
+	}
+
+	public HomePageHeaders getHomePageHeaders() {
+		return homePageHeaders;
+	}
+
+	public void setHomePageHeaders(HomePageHeaders homePageHeaders) {
+		this.homePageHeaders = homePageHeaders;
+	}
+	
+	public AboutPage navToAboutPage() {
+		this.homePageHeaders.getAboutTab().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.homePageHeaders.getHomeTab());
+		return new AboutPage(this.driver);
+	}
+}

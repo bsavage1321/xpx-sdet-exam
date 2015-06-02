@@ -1,0 +1,23 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class homeHeaderTest extends BaseTest {
+	
+	public static final Logger LOG = LoggerFactory.getLogger(SampleTest.class);
+	
+	@Test
+	public void testAboutPageNav() {
+		// Visit the about page
+		final AboutPage aboutPage = new HomePage(this.driver, true).navToAboutPage();
+		
+		// Check the text to see if it is the expected text.
+		System.out.println("Checking to see if tagline text is correct...");
+		Assert.assertEquals(aboutPage.getHowWeGotStarted().getText(), "HOW WE GOT STARTED");
+	
+	}
+}

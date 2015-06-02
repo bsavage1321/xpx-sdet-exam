@@ -1,0 +1,14 @@
+package com.xpanxion.training.java.selenium.automation.tests;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+import com.xpanxion.training.java.selenium.automation.objects.templates.*;
+
+public class HeaderTest extends BaseTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}

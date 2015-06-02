@@ -1,0 +1,77 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import com.xpanxion.training.java.selenium.core.utils.WaitUtils;
+
+public class ContactPage extends MainPageTemplate {
+	
+	//private ContactPage contactPage;
+	
+	@FindBy(id = "u1676-4")
+	private WebElement messageContact;
+
+	@FindBy(className= "fld-grp clearfix grpelem fld-err-st")
+	private WebElement name;
+	
+	@FindBy(id = "u1679-17")
+	private WebElement submitContactInfo;
+	
+	@FindBy(className = "fld-grp clearfix grpelem fld-err-st")
+	private WebElement errorVerification;
+	
+	public WebElement getErrorVerification() {
+		return errorVerification;
+	}
+
+
+	public void setErrorVerification(WebElement errorVerification) {
+		this.errorVerification = errorVerification;
+	}
+
+
+	public WebElement getSubmitContactInfo() {
+		return submitContactInfo;
+	}
+
+
+	public void setSubmitContactInfo(WebElement submitContactInfo) {
+		this.submitContactInfo = submitContactInfo;
+	}
+
+
+	public ContactPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void submitContactInfo() {
+		this.getSubmitContactInfo().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.getMessageContact());
+		//return new ContactPage(this.driver);
+	}
+	
+	public WebElement getMessageContact() {
+		return messageContact;
+	}
+
+
+	public void setMessageContact(WebElement messageContact) {
+		this.messageContact = messageContact;
+	}
+
+
+	public WebElement getName() {
+		return name;
+	}
+	
+
+
+	public void setName(WebElement name) {
+		this.name = name;
+	}
+
+	
+}

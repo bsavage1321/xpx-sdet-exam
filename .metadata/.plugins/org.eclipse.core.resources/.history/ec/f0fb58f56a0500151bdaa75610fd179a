@@ -1,0 +1,30 @@
+package com.xpanxion.training.java.selenium.automation;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class CSSTest extends BaseTest {
+	
+	public static final Logger LOG = LoggerFactory.getLogger(SampleTest.class);
+	
+	@Test
+	public void testContactPageNav() {
+		final ContactPage contactPage = new HomePage(this.driver, true).navToContactPage();
+		System.out.println("Verifying Contact Page has loaded");
+		Assert.assertEquals(contactPage.getMessageContact().getText(), "Message:");
+		System.out.println(contactPage.getName().getAttribute("color:"));
+	}
+	/*
+	@Test
+	public void blankSubmitFontChange() {
+		final ContactPage contactPage = new ContactPage(driver);
+		System.out.println(contactPage.getName().getAttribute("color:"));
+	}
+	*/
+
+}

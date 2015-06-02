@@ -1,0 +1,42 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class ContactPage extends MainPageTemplate {
+	
+	
+	@FindBy(id = "u1676-4")
+	private WebElement messageContact;
+
+	@FindBy(id = "u1683-4")
+	private WebElement name;
+	
+	public ContactPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public WebElement getMessageContact() {
+		return messageContact;
+	}
+
+
+	public void setMessageContact(WebElement messageContact) {
+		this.messageContact = messageContact;
+	}
+
+
+	public WebElement getName() {
+		return name;
+	}
+
+
+	public void setName(WebElement name) {
+		this.name = name;
+	}
+
+	
+}

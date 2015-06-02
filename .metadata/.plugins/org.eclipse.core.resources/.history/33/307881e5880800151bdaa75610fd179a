@@ -1,0 +1,47 @@
+package xpanxion.SDETexam.selenium.test;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+
+
+
+
+import xpanxion.SDETexam.selenium.components.HomePageFooters;
+import xpanxion.SDETexam.selenium.objects.pages.AboutPage;
+//import xpanxion.SDETexam.selenium.components.PageFooter;
+import xpanxion.SDETexam.selenium.objects.pages.HomePage;
+
+
+
+import xpanxion.SDETexam.selenium.objects.pages.PageFooter;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class FooterTest extends BaseTest{
+
+	public static final Logger LOG = LoggerFactory.getLogger(SampleTest.class);
+	
+	@Test
+	public void testHomePageNav() {
+		final HomePage homePage = new HomePage(this.driver, true);
+		System.out.println("Verifying Home Page Loaded");
+		Assert.assertEquals(homePage.getTaglineText().getText(), "THINK RURAL.\nLEVERAGE GLOBAL.");
+		
+		
+	}
+	
+	@Test
+	public void testFooterNav() {
+		final AboutPage aboutPageFooter = new PageFooter(this.driver, true).navToAboutPageViaFooter();
+		aboutPageFooter.navToAboutPage();
+		Assert.assertEquals(driver.getCurrentUrl(), "http://xpanxion.com/about.html");
+		//Assert.assertEquals(aboutPageFooter.getHowWeGotStarted().getText(), "THINK RURAL.\nLEVERAGE GLOBAL");
+		
+		
+		
+	}
+}

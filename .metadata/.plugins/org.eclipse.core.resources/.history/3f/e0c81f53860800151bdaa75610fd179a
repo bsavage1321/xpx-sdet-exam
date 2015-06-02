@@ -1,0 +1,20 @@
+package xpanxion.SDETexam.selenium.components;
+
+import org.openqa.selenium.WebDriver;
+
+import xpanxion.SDETexam.selenium.template.MainPageTemplate;
+
+public class PageFooter extends MainPageTemplate{
+
+	public PageFooter(WebDriver driver) {
+		super(driver);
+		
+	}
+	
+	public PageFooter(WebDriver driver, boolean openHomePage) {
+		super(driver, openHomePage ? "https://www.xpanxion.com" : null);
+	}
+
+	
+	
+}

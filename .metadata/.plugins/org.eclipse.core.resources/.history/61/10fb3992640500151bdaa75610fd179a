@@ -1,0 +1,26 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class ServicesPage extends MainPageTemplate {
+
+	@FindBy(id = "u10981-4")
+	private WebElement toolsAndTech;
+	
+	public ServicesPage(WebDriver driver) {
+		super(driver);
+		
+	}
+
+	public WebElement getToolsAndTech() {
+		return toolsAndTech;
+	}
+
+	public void setToolsAndTech(WebElement toolsAndTech) {
+		this.toolsAndTech = toolsAndTech;
+	}
+	
+
+}

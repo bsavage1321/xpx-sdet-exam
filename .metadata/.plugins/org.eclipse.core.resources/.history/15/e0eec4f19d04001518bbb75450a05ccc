@@ -1,0 +1,23 @@
+package com.xpanxion.training.java.selenium.automation.tests;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.xpanxion.training.java.selenium.automation.objects.components.PageHeader;
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class HeaderTest extends BaseTest{
+
+		
+		@Test
+		public void doHeadersDisplay(){
+		this.driver.get("http://www.xpanxion.com");
+		
+		final PageHeader pageHeader = new PageHeader(this.driver);
+		
+		Assert.assertEquals(pageHeader.getAboutLink().getText(), "ABOUT");
+		}
+
+	
+
+}

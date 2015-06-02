@@ -1,0 +1,186 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import com.xpanxion.training.java.selenium.core.utils.WaitUtils;
+
+public class ContactPage extends MainPageTemplate {
+	
+	//private ContactPage contactPage;
+	
+	@FindBy(id = "u1676-4")
+	private WebElement messageContact;
+	
+	@FindBy(id = "widgetu1680_input")
+	private WebElement nameBefore;
+	
+	@FindBy(id = "u1683")
+	private WebElement nameText;
+	
+	@FindBy(id = "widgetu1684_input")
+	private WebElement emailBefore;
+	
+	@FindBy(xpath = "/html/body/div[1]/div[1]/form/div[2]/span/label")
+	private WebElement emailText;
+	
+	@FindBy(id = "widgetu1691_input")
+	private WebElement phoneNumberBefore;
+	
+	@FindBy(css = "html.html.js.wf-opensans-n3-active.wf-sourcesanspro-i4-active.wf-sourcesanspro-n4-active.wf-sourcesanspro-n7-active.wf-active.animsition body div#page.clearfix div#pu10074.clearfix.grpelem form#widgetu1673.form-grp.clearfix.grpelem div#widgetu1691.fld-grp.clearfix.grpelem.fld-err-st.empty span#u1693-4.fld-input.NoWrap.actAsDiv.clearfix.grpelem label#widgetu1691_prompt.wrapped-input.fld-prompt span.actAsPara")
+	private WebElement phoneNumberText;
+
+
+
+	@FindBy(id = "widgetu1680_prompt")
+	private WebElement nameAfter;
+	
+	
+	@FindBy(id = "widgetu1684_prompt")
+	private WebElement emailAfter;
+	
+	
+	@FindBy(id = "widgetu1691_prompt")
+	private WebElement phoneNumberAfter;
+	
+	
+	@FindBy(id = "u1679-17")
+	private WebElement submitContactInfo;
+	
+	/*
+	//@FindBy(className = "fld-grp clearfix grpelem fld-err-st")
+	//private WebElement errorVerification;
+	
+	public WebElement getErrorVerification() {
+		return errorVerification;
+	}
+
+
+	public void setErrorVerification(WebElement errorVerification) {
+		this.errorVerification = errorVerification;
+	}
+
+*/
+	public WebElement getSubmitContactInfo() {
+		return submitContactInfo;
+	}
+
+
+	public void setSubmitContactInfo(WebElement submitContactInfo) {
+		this.submitContactInfo = submitContactInfo;
+	}
+
+
+	public ContactPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void submitContactInfo() {
+		this.getSubmitContactInfo().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.getMessageContact());
+		//return new ContactPage(this.driver);
+	}
+	
+	public WebElement getMessageContact() {
+		return messageContact;
+	}
+
+
+	public void setMessageContact(WebElement messageContact) {
+		this.messageContact = messageContact;
+	}
+
+
+	public WebElement getNameAfter() {
+		return nameAfter;
+	}
+	
+
+
+	public void setNameAfter(WebElement name) {
+		this.nameAfter = name;
+	}
+
+
+	public WebElement getEmailAfter() {
+		return emailAfter;
+	}
+
+
+	public void setEmailAfter(WebElement email) {
+		this.emailAfter = email;
+	}
+
+
+	public WebElement getPhoneNumberAfter() {
+		return phoneNumberAfter;
+	}
+
+
+	public void setPhoneNumberAfter(WebElement phoneNumber) {
+		this.phoneNumberAfter = phoneNumber;
+	}
+
+
+	public WebElement getNameBefore() {
+		return nameBefore;
+	}
+
+
+	public void setNameBefore(WebElement nameBefore) {
+		this.nameBefore = nameBefore;
+	}
+
+
+	public WebElement getEmailBefore() {
+		return emailBefore;
+	}
+
+
+	public void setEmailBefore(WebElement emailBefore) {
+		this.emailBefore = emailBefore;
+	}
+
+
+	public WebElement getPhoneNumberBefore() {
+		return phoneNumberBefore;
+	}
+
+
+	public void setPhoneNumberBefore(WebElement phoneNumberBefore) {
+		this.phoneNumberBefore = phoneNumberBefore;
+	}
+
+	public WebElement getNameText() {
+		return nameText;
+	}
+
+
+	public void setNameText(WebElement nameTextBefore) {
+		this.nameText = nameTextBefore;
+	}
+
+
+	public WebElement getEmailText() {
+		return emailText;
+	}
+
+
+	public void setEmailText(WebElement emailText) {
+		this.emailText = emailText;
+	}
+
+
+	public WebElement getPhoneNumberText() {
+		return phoneNumberText;
+	}
+
+
+	public void setPhoneNumberText(WebElement phoneNumberText) {
+		this.phoneNumberText = phoneNumberText;
+	}
+
+	
+}

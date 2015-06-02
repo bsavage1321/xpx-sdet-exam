@@ -1,0 +1,17 @@
+package com.xpanxion.training.java.selenium.automation;
+
+
+import org.testng.annotations.Test;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class CSSTest extends BaseTest {
+	
+	@Test
+	public void blankSubmitFontChange() {
+		final ContactPage contactPage = new ContactPage(driver);
+		System.out.println(contactPage.getName().getAttribute("color:"));
+	}
+	
+
+}

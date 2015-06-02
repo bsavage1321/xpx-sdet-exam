@@ -1,0 +1,134 @@
+package com.xpanxion.training.java.selenium.automation.objects.templates;
+
+import org.openqa.selenium.WebDriver;
+
+import com.xpanxion.training.java.selenium.automation.objects.components.PageHeader;
+import com.xpanxion.training.java.selenium.automation.objects.pages.AboutPage;
+import com.xpanxion.training.java.selenium.automation.objects.pages.ApproachPage;
+import com.xpanxion.training.java.selenium.automation.objects.pages.CareersPage;
+import com.xpanxion.training.java.selenium.automation.objects.pages.ContactPage;
+import com.xpanxion.training.java.selenium.automation.objects.pages.HomePage;
+import com.xpanxion.training.java.selenium.automation.objects.pages.ServicesPage;
+import com.xpanxion.training.java.selenium.core.PageObject;
+import com.xpanxion.training.java.selenium.core.utils.WaitUtils;
+
+/**
+ * <p>The main page template for all Selenium PageObjects. 
+ * 
+ * <p>This template should be used to contain all WebElements common to every page. Examples 
+ * include a common header, footer, or any other elements and methods that will be shared 
+ * across several of the application PageObjects.
+ *
+ */
+public class MainPageTemplate extends PageObject {
+
+	private PageHeader pageHeader;
+	
+	/**
+	 * Instantiates this PageObject and subsequently loads all of the WebElements associated
+	 * with this PageObject, annotated with @FindBy and other Selenium PageFactory annotations.
+	 * 
+	 * <p>This constructor assumes the required page has already been opened and loaded.
+	 *  
+	 * @param driver The WebDriver object to use. This should be passed in from the test method.
+	 *
+	 * @see PageObject#PageObject(WebDriver)
+	 */
+	public MainPageTemplate(WebDriver driver) {
+		this(driver, null);
+	}
+	
+	/**
+	 * Instantiates this PageObject and subsequently loads all of the WebElements associated
+	 * with this PageObject, annotated with @FindBy and other Selenium PageFactory annotations.
+	 * 
+	 * <p>If <b>url</b> is provided, that URL will be opened prior to instantiation.
+	 *  
+	 * @param driver The WebDriver object to use. This should be passed in from the test method.
+	 * @param url The URL to load prior to instantiation.
+	 *
+	 * @see PageObject#PageObject(WebDriver, String)
+	 */
+	public MainPageTemplate(WebDriver driver, String url) {
+		super(driver, url);
+
+		this.setPageHeader(new PageHeader(driver));
+	}
+	
+	/**
+	 * Get the Page Header WebElement.
+	 * 
+	 * @return the Page Header WebElement.
+	 */
+	public PageHeader getPageHeader() {
+		return pageHeader;
+	}
+
+	/**
+	 * Set the Page Header WebElement.
+	 * @param pageHeader the Page Header WebElement to set.
+	 */
+	public void setPageHeader(PageHeader pageHeader) {
+		this.pageHeader = pageHeader;
+	}
+	
+	/**
+	 * Navigate the user to the About Page, using the header links on the page.
+	 * @return The AboutPage PageObject.
+	 */
+	public AboutPage navToAboutPage() {
+		this.pageHeader.getAboutLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new AboutPage(this.driver);
+	}
+	
+	/**
+	 * Navigate the user to the Home Page, using the header links on the page.
+	 * @return The HomePage PageObject.
+	 */
+	public HomePage navToHomePage() {
+		this.pageHeader.getHomeLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new HomePage(this.driver);
+	}
+	
+	/**
+	 * Navigate the user to the Approach Page, using the header links on the page.
+	 * @return The ApproachPage PageObject.
+	 */
+	public ApproachPage navToApporachPage() {
+		this.pageHeader.getApproachLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new ApproachPage(this.driver);
+	}
+	
+	/**
+	 * Navigate the user to the Services Page, using the header links on the page.
+	 * @return The ServicesPage PageObject.
+	 */
+	public ServicesPage navToServicesPage() {
+		this.pageHeader.getServicesLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new ServicesPage(this.driver);
+	}
+	
+	/**
+	 * Navigate the user to the Careers Page, using the header links on the page.
+	 * @return The CareersPage PageObject.
+	 */
+	public CareersPage navToCareersPage() {
+		this.pageHeader.getCareersLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new CareersPage(this.driver);
+	}
+	
+	/**
+	 * Navigate the user to the Contact Page, using the header links on the page.
+	 * @return The ContactPage PageObject.
+	 */
+	public ContactPage navToContactPage() {
+		this.pageHeader.getContactLink().click();
+		WaitUtils.waitUntilElementIsVisible(this.driver, this.pageHeader.getHomeLink());
+		return new ContactPage(this.driver);
+	}
+}

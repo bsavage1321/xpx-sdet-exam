@@ -1,0 +1,64 @@
+package com.xpanxion.training.java.selenium.automation;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.xpanxion.training.java.selenium.core.BaseTest;
+
+public class CSSTest extends BaseTest {
+	
+	public static final Logger LOG = LoggerFactory.getLogger(SampleTest.class);
+	
+	@Test
+	public void testContactPageEmptySubmit() {
+		final ContactPage contactPage = new HomePage(this.driver, true).navToContactPage();
+		System.out.println("Verifying Contact Page has loaded");
+		Assert.assertEquals(contactPage.getMessageContact().getText(), "Message:");
+		
+		System.out.println("Before an empty Name submission");
+		//System.out.println(contactPage.getNameBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getNameBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+		
+		System.out.println("Before an empty Email submission");
+		//System.out.println(contactPage.getEmailBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getEmailBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+
+		
+		System.out.println("Before an empty Phone Number Submission");
+		//System.out.println(contactPage.getPhoneNumberBefore().getCssValue("color"));
+		Assert.assertEquals(contactPage.getPhoneNumberBefore().getCssValue("color"), "rgba(196, 196, 196, 1)");
+
+		System.out.println("Sending an empty Contact form");
+		contactPage.submitContactInfo();
+		/*
+		 * 
+		System.out.println(contactPage.getName().getCssValue("color"));
+		System.out.println(contactPage.getName().getCssValue("font-style"));
+		
+		System.out.println(contactPage.getEmail().getCssValue("color"));
+		System.out.println(contactPage.getEmail().getCssValue("font-style"));
+		
+		System.out.println(contactPage.getPhoneNumber().getCssValue("color"));
+		System.out.println(contactPage.getPhoneNumber().getCssValue("font-style"));
+		*/
+		System.out.println("Verifying error has displayed for the Name field");
+		Assert.assertEquals(contactPage.getNameAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		
+		System.out.println("Verifying error has displayed for the Email field");
+		Assert.assertEquals(contactPage.getEmailAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+		
+		System.out.println("Verifying error has dispayed for the Phone Number field");
+		Assert.assertEquals(contactPage.getPhoneNumberAfter().getCssValue("color"), "rgba(215, 36, 76, 1)");
+	}
+	/*
+	@Test
+	public void blankSubmitFontChange() {
+		final ContactPage contactPage = new ContactPage(driver);
+		System.out.println(contactPage.getName().getAttribute("color:"));
+	}
+	*/
+
+}

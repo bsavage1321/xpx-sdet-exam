@@ -1,0 +1,32 @@
+package com.xpanxion.training.java.selenium.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class HomePage extends MainPageTemplate {
+	
+	@FindBy(id = "u3097-6")
+	private WebElement taglineText;
+	
+	public HomePage(WebDriver driver) {
+		super(driver);
+		
+	}
+	
+	public HomePage(WebDriver driver, boolean openHomePage) {
+		super(driver, openHomePage ? "https://www.xpanxion.com" : null);
+	}
+	public WebElement getTaglineText() {
+		return taglineText;
+	}
+
+	public void setTaglineText(WebElement taglineText) {
+		this.taglineText = taglineText;
+	}
+
+	
+
+	
+
+}
